@@ -50,7 +50,12 @@ do
 
 ## RUN
 #        ffmpeg -loglevel info -i "$fullfile" -codec:a libmp3lame -qscale:a 0 "$outfile"
-        avconv -n -nostats -loglevel info -i "$fullfile" -codec:a libmp3lame -qscale:a 0 "$outfile"
+#        avconv -n -nostats -loglevel info -i "$fullfile" -codec:a libmp3lame -qscale:a 0 "$outfile"
+opusenc --vbr --bitrate ??? --music --date "$DATE" \
+--title "$TITLE" --artist "$ARTIST" --album "$ALBUM" --genre "$GENRE" \
+--comment "ALBUMARTIST=$ALBUMARTIST" --comment "DISCNUMBER=$DISCNUMBER" \
+--comment "TRACKNUMBER=$TRACKNUMBER" --comment "TRACKTOTAL=$TRACKTOTAL" \
+--comment "LYRICS=$LYRICS" "$fullfile" "$outfile"
 ## just for testing
 #        sleep 1
 done
